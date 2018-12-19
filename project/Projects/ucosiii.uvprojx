@@ -49,7 +49,7 @@
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
           <OutputDirectory>.\obj\</OutputDirectory>
-          <OutputName>Project</OutputName>
+          <OutputName>ucos</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>0</CreateHexFile>
@@ -337,7 +337,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>..\Libraries\CMSIS\Include;..\Libraries\CMSIS\Device\Include;..\Libraries\STM32F0xx_StdPeriph_Driver\inc;..\User\BSP;..\User\Main;..\UCOS_III\uC-CPU\cfg;..\UCOS_III\uC-LIB\cfg;..\UCOS_III\uCOS-III\cfg;..\UCOS_III\uCOS-III\Ports;..\UCOS_III\uCOS-III\Source;..\UCOS_III\uC-CPU\Port;..\UCOS_III\uC-LIB\Ports;..\UCOS_III\uC-CPU;..\UCOS_III\uC-LIB</IncludePath>
+              <IncludePath>..\Libraries\CMSIS\Include;..\Libraries\CMSIS\Device\Include;..\Libraries\STM32F0xx_StdPeriph_Driver\inc;..\user\;..\UCOS_III\uC-CPU\cfg;..\UCOS_III\uC-LIB\cfg;..\UCOS_III\uCOS-III\cfg;..\UCOS_III\uCOS-III\Ports;..\UCOS_III\uCOS-III\Source;..\UCOS_III\uC-CPU\Port;..\UCOS_III\uC-LIB\Ports;..\UCOS_III\uC-CPU;..\UCOS_III\uC-LIB</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -379,27 +379,22 @@
       </TargetOption>
       <Groups>
         <Group>
-          <GroupName>BSP</GroupName>
+          <GroupName>user</GroupName>
           <Files>
             <File>
               <FileName>bsp.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\User\BSP\bsp.c</FilePath>
+              <FilePath>..\user\bsp.c</FilePath>
             </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>USER</GroupName>
-          <Files>
             <File>
               <FileName>main.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\User\Main\main.c</FilePath>
+              <FilePath>..\user\main.c</FilePath>
             </File>
             <File>
               <FileName>stm32f0xx_it.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\User\Main\stm32f0xx_it.c</FilePath>
+              <FilePath>..\user\stm32f0xx_it.c</FilePath>
             </File>
           </Files>
         </Group>
