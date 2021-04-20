@@ -1,0 +1,11 @@
+*.pyc
+*__pyc*/
+*.pio/
+*.vscode/
+misc/svd/*.html
+*.rst
+examples/**/*.md
+LICENSE*
+**/*README*
+*.png
+*.jpg
