@@ -49,7 +49,52 @@ jobs:
         name: code_check_report
         path: codecheck.txt
 
-  build:
+  arduino:
+    strategy:
+      fail-fast: false
+      matrix:
+        example:
+          - "pico-apple-2"
+          - "pico-hello"
+          - "pico-i2c-oled"
+          - "pico-ili9341"
+          - "pico-pioasm-ws2812"
+          - "pico-posix"
+          - "pico-tft-dma-st7789"
+          - "pico-tft-st7789"
+        package: ["pio","qio"]
+        os: [ubuntu-latest, windows-latest, macos-latest]
+
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: "recursive"
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.9
+
+      - name: Install qio
+        if: matrix.package == 'qio'
+        run: |
+          pip install -U https://github.com/OS-Q/M03/releases/latest/download/qio.zip
+          qio platform install https://github.com/OS-Q/P312/archive/master.zip
+
+      - name: Install pio
+        if: matrix.package == 'pio'
+        run: |
+          pip install -U https://github.com/platformio/platformio/archive/develop.zip
+          pio platform install https://github.com/OS-Q/P312/archive/master.zip
+
+      - name: build arduino
+        working-directory: arduino
+        run: |
+          pio run -d ${{ matrix.example }}
+
+  baremetal:
     strategy:
       fail-fast: false
       matrix:
@@ -89,7 +134,7 @@ jobs:
           pip install -U https://github.com/platformio/platformio/archive/develop.zip
           pio platform install https://github.com/OS-Q/P312/archive/master.zip
 
-      - name: Build examples
+      - name: build baremetal
         working-directory: baremetal
         run: |
           pio run -d ${{ matrix.example }}
