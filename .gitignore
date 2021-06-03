@@ -1,11 +1,15 @@
+*.db
 *.pyc
 *__pyc*/
 *.pio/
 *.vscode/
-misc/svd/*.html
 *.rst
-examples/**/*.md
+**/*.md
 LICENSE*
 **/*README*
 *.png
 *.jpg
+**/CONTR*
+**/CHANGE*
+Change*
+CHANGE*
